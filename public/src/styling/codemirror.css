@@ -1,0 +1,140 @@
+.cm-s-theme,
+.cm-s-theme .CodeMirror-scroll,
+.cm-s-theme .CodeMirror-gutters,
+.cm-s-theme .CodeMirror-gutter,
+.CodeMirror-scrollbar-filler,
+.CodeMirror-gutter-filler {
+  background: var(--bg-secondary);
+}
+
+.cm-s-theme.CodeMirror {
+  color: var(--text-primary);
+  font-family: monospace;
+  caret-color: var(--caret);
+  height: 100%;
+}
+
+.cm-s-theme .CodeMirror-gutters {
+  border-right: 1px solid var(--border);
+}
+
+.cm-s-theme .CodeMirror-linenumber {
+  color: var(--text-muted);
+}
+
+.cm-s-theme .CodeMirror-cursor {
+  border-left: 2px solid var(--caret-color);
+}
+
+.cm-s-theme .CodeMirror-selected,
+.cm-s-theme .CodeMirror-selection,
+.CodeMirror-searching,
+.cm-s-theme .CodeMirror-activeline-background {
+  background: var(--selection-bg) !important;
+}
+
+.cm-s-theme .CodeMirror-matchingbracket {
+  color: var(--text-primary) !important;
+  font-weight: bold;
+}
+
+.cm-s-theme .cm-comment,
+.cm-s-theme .cm-quote {
+  color: var(--syntax-comment);
+}
+
+.cm-s-theme .cm-keyword,
+.cm-s-theme .cm-operator,
+.cm-s-theme .cm-tag,
+.cm-s-theme .cm-tag.cm-close-tag {
+  color: var(--syntax-keyword);
+}
+
+.cm-s-theme .cm-string,
+.cm-s-theme .cm-string-2 {
+  color: var(--syntax-string);
+}
+
+.cm-s-theme .cm-number,
+.cm-s-theme .cm-atom {
+  color: var(--syntax-number);
+}
+
+.cm-s-theme .cm-def,
+.cm-s-theme .cm-property,
+.cm-s-theme .cm-attribute {
+  color: var(--syntax-property);
+}
+
+.cm-s-theme .cm-type,
+.cm-s-theme .cm-builtin,
+.cm-s-theme .cm-variable-2,
+.cm-s-theme .cm-link {
+  color: var(--syntax-type);
+}
+
+.cm-s-theme .cm-variable,
+.cm-s-theme .cm-variable-3,
+.cm-s-theme .cm-meta,
+.cm-s-theme .cm-qualifier,
+.cm-s-theme .cm-bracket {
+  color: var(--syntax-variable);
+}
+
+.cm-s-theme .cm-error {
+  color: var(--syntax-error);
+  background: transparent;
+}
+
+.cm-s-theme .cm-link {
+  text-decoration: underline;
+}
+
+.CodeMirror-hints {
+  background: var(--hint-bg) !important;
+  border: 1px solid var(--hint-border) !important;
+  border-radius: 4px;
+  box-shadow: var(--hint-shadow);
+  padding: 4px 0;
+  font: 13px monospace;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.CodeMirror-hint {
+  background: var(--hint-item-bg) !important;
+  color: var(--hint-item-fg) !important;
+  padding: 5px 12px;
+  cursor: pointer;
+  line-height: 1.5;
+  transition: background 80ms;
+}
+
+.CodeMirror-hint:hover {
+  background: var(--hint-item-hover-bg) !important;
+}
+
+.CodeMirror-hint-active {
+  background: var(--hint-active-bg) !important;
+  border-left: 2px solid var(--hint-active-border);
+  padding-left: 10px;
+  color: var(--hint-active-fg) !important;
+}
+
+.CodeMirror-hints::-webkit-scrollbar {
+  width: 4px;
+}
+
+.CodeMirror-hints::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+.CodeMirror-hints::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 2px;
+}
+
+.CodeMirror-hints::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}

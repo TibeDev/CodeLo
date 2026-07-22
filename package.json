@@ -1,0 +1,59 @@
+{
+  "name": "CodeLo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-builder",
+    "release": "electron-builder --publish always"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "build": {
+    "appId": "com.codelo",
+    "productName": "CodeLo",
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "TibeDev",
+        "repo": "CodeLo"
+      }
+    ],
+    "files": [
+      "main.js",
+      "preload.js",
+      "server.js",
+      "admin/**/*",
+      "public/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ]
+  },
+  "dependencies": {
+    "@codemirror/basic-setup": "^0.20.0",
+    "@codemirror/lang-javascript": "^6.2.5",
+    "@codemirror/state": "^6.6.0",
+    "@codemirror/view": "^6.43.0",
+    "codemirror": "^6.0.2",
+    "electron-updater": "^6.8.9",
+    "express": "^5.2.1",
+    "jszip": "^3.10.1",
+    "plist": "^3.1.0",
+    "split.js": "^1.6.5"
+  },
+  "devDependencies": {
+    "electron": "^43.2.0",
+    "electron-builder": "^26.15.3"
+  }
+}

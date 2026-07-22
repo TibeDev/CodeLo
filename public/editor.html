@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./src/styling/style.css" />
+    <link rel="stylesheet" href="./src/styling/codemirror.css" />
+    <link rel="stylesheet" href="./vendor/tabler-icons/tabler-icons.min.css" />
+    <link rel="stylesheet" href="./vendor/fontawesome/css/all.min.css" />
+
+    <!-- ================= CODEMIRROR CORE ================= -->
+    <link rel="stylesheet" href="./vendor/codemirror/codemirror.min.css" />
+    <script src="./vendor/codemirror/codemirror.min.js"></script>
+
+    <!-- ================= MODES ================= -->
+    <script src="./vendor/codemirror/mode/xml/xml.min.js"></script>
+    <script src="./vendor/codemirror/mode/javascript/javascript.min.js"></script>
+    <script src="./vendor/codemirror/mode/css/css.min.js"></script>
+    <script src="./vendor/codemirror/mode/htmlmixed/htmlmixed.min.js"></script>
+
+    <!-- ================= LINT CORE ================= -->
+    <link rel="stylesheet" href="./vendor/codemirror/addon/lint/lint.min.css" />
+    <script src="./vendor/codemirror/addon/lint/lint.min.js"></script>
+
+    <!-- ================= LINTER ENGINES ================= -->
+    <script src="./vendor/jshint/jshint.min.js"></script>
+    <script src="./vendor/csslint/csslint.min.js"></script>
+    <script src="./vendor/htmlhint/htmlhint.min.js"></script>
+
+    <!-- ================= LINT PLUGINS ================= -->
+    <script src="./vendor/codemirror/addon/lint/javascript-lint.min.js"></script>
+    <script src="./vendor/codemirror/addon/lint/css-lint.min.js"></script>
+    <script src="./vendor/codemirror/addon/lint/html-lint.min.js"></script>
+
+    <!-- ================= AUTOCOMPLETE ================= -->
+    <link
+      rel="stylesheet"
+      href="./vendor/codemirror/addon/hint/show-hint.min.css"
+    />
+    <script src="./vendor/codemirror/addon/hint/show-hint.min.js"></script>
+
+    <script src="./vendor/codemirror/addon/hint/xml-hint.min.js"></script>
+    <script src="./vendor/codemirror/addon/hint/html-hint.min.js"></script>
+    <script src="./vendor/codemirror/addon/hint/css-hint.min.js"></script>
+    <script src="./vendor/codemirror/addon/hint/javascript-hint.min.js"></script>
+
+    <!-- ================= UX ================= -->
+    <script src="./vendor/codemirror/addon/edit/closebrackets.min.js"></script>
+    <script src="./vendor/codemirror/addon/edit/closetag.min.js"></script>
+    <script src="./vendor/codemirror/addon/edit/matchbrackets.min.js"></script>
+
+    <script src="./vendor/prettier/standalone.js"></script>
+    <script src="./vendor/prettier/html.js"></script>
+    <script src="./vendor/prettier/postcss.js"></script>
+    <script src="./vendor/prettier/babel.js"></script>
+    <script src="./vendor/prettier/estree.js"></script>
+  </head>
+
+  <body>
+    <div id="alert">Uploaded succesfully!</div>
+    <div id="overlay">
+      <div class="overlay-div" id="session-state">
+        <p>Wait for your host to start the session.</p>
+      </div>
+      <div class="overlay-div" id="session-over">
+        <p>Your time is up! Your latest work has been uploaded!</p>
+      </div>
+      <div class="overlay-div" id="set-name">
+        <div class="field">
+          <label>Your Name:</label>
+          <input
+            placeholder="NAME CAN'T BE EMPTY"
+            id="person-name"
+            type="text"
+          />
+        </div>
+
+        <button onclick="SetName()">Set Name</button>
+      </div>
+
+      <div class="overlay-div" id="prompt">
+        <p id="prompt-question">
+          Are you sure you wanna delete your current project?
+        </p>
+        <div class="field">
+          <button id="accept-btn">Yes</button>
+          <button class="close-btn">No</button>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-panel left">
+        <h1 id="session-name"></h1>
+        <h1 id="session-time"></h1>
+      </div>
+
+      <div class="nav-panel right">
+        <select id="mode-dropdown"></select>
+        <select id="layout-dropdown"></select>
+        <select id="theme-dropdown"></select>
+
+        <button id="file-upload-btn" onclick="UploadProject(true)">
+          <i class="ti ti-upload"></i>
+        </button>
+        <button
+          id="logout-btn"
+          onclick="Prompt('Are you sure you wanna logout?', Logout)"
+        >
+          <i class="ti ti-logout"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div id="container" class="vertical layout-el">
+      <div id="editor-panel" class="vertical layout-el">
+        <div id="html-panel" class="editor vertical layout-el">
+          <div class="editor-nav" data-size="[100, 0, 0]">
+            <i class="editor-icon ti ti-brand-html5"></i>
+            <span class="editor-name">HTML</span>
+          </div>
+          <textarea id="editor-html"></textarea>
+        </div>
+
+        <div id="css-panel" class="editor vertical layout-el">
+          <div class="editor-nav" data-size="[0, 100, 0]">
+            <i class="editor-icon ti ti-brand-css3"></i>
+            <span class="editor-name">CSS</span>
+          </div>
+          <textarea id="editor-css"></textarea>
+        </div>
+
+        <div id="js-panel" class="editor vertical layout-el">
+          <div class="editor-nav" data-size="[0, 0, 100]">
+            <i class="editor-icon ti ti-brand-javascript"></i>
+            <span class="editor-name">JS</span>
+          </div>
+          <textarea id="editor-js"></textarea>
+        </div>
+      </div>
+
+      <iframe id="output" frameborder="0" sandbox="allow-scripts"></iframe>
+    </div>
+
+    <script src="./vendor/splitjs/split.min.js"></script>
+    <script src="./src/javascript/overlay.js"></script>
+    <script src="./src/javascript/layout.js"></script>
+    <script src="./src/javascript/run.js"></script>
+    <script src="./src/javascript/alert.js"></script>
+    <script src="./src/javascript/editor.js"></script>
+    <script src="./src/javascript/session.js"></script>
+    <script src="./src/javascript/theme.js"></script>
+    <script src="./src/javascript/prompt.js"></script>
+  </body>
+</html>

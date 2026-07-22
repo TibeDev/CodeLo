@@ -1,0 +1,67 @@
+:root {
+  --bg-main: #0a1514;
+  --bg-secondary: #0d1a19;
+  --bg-overlay: #071110;
+  --bg-editor: #0a1514;
+  --bg-editor-header: #0a1514;
+  --bg-output: #ffffff;
+
+  --bg-nav: #0d1a19;
+  --fg-nav-title: #61a69c;
+  --fg-nav-buttons: #61a69c;
+  --nav-hover-outline: #61a69c;
+
+  --bg-input: #0a1514;
+  --bg-button: #0a1514;
+  --bg-select: #0a1514;
+
+  --fg-input: #b8d4d1;
+  --fg-button: #b8d4d1;
+  --fg-select: #b8d4d1;
+
+  --editor-header-fg: #61a69c;
+  --editor-name-fg: #b8d4d1;
+  --editor-icon-color: #61a69c;
+
+  --bg-gutter: #0a1514;
+  --bg-gutter-hover: #0f1e1d;
+
+  --text-primary: #b8d4d1;
+  --text-muted: #2e4845;
+
+  --caret-color: #98d4cc;
+  --selection-bg: rgba(97, 166, 156, 0.18);
+
+  --syntax-comment: #2e4845;
+  --syntax-keyword: #3d8c85;
+  --syntax-string: #7ab8b0;
+  --syntax-number: #98d4cc;
+  --syntax-type: #3d8c85;
+  --syntax-variable: #b8d4d1;
+  --syntax-property: #b8d4d1;
+  --syntax-error: #98d4cc;
+
+  --hint-bg: #071110;
+  --hint-border: #1a2e2c;
+  --hint-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.4);
+
+  --hint-item-bg: #071110;
+  --hint-item-fg: #61a69c;
+  --hint-item-hover-bg: #0f1e1d;
+
+  --hint-active-bg: #0f2422;
+  --hint-active-fg: #61a69c;
+  --hint-active-border: #61a69c;
+
+  --scrollbar-track: #071110;
+  --scrollbar-thumb: #1a2e2c;
+  --scrollbar-thumb-hover: #2a4845;
+
+  --overlay-bg: rgba(10, 21, 20, 0.35);
+  --overlay-blur: blur(1px);
+
+  --modal-bg: #0d1a19;
+  --modal-fg: #b8d4d1;
+
+  --shadow-popup: 0 10px 30px rgba(0, 0, 0, 0.6);
+}

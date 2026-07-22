@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+  </head>
+  <body>
+    <div id="alert"></div>
+    <div id="overlay">
+      <div class="overlay-div" id="confirm">
+        <p id="confirm-message"></p>
+        <div class="field">
+          <button id="accept-btn">Ok</button>
+        </div>
+      </div>
+      <div class="overlay-div" id="prompt">
+        <p id="prompt-question"></p>
+        <div class="field">
+          <button id="accept-btn-prompt">Yes</button>
+          <button class="close-btn">No</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="titlebar"></div>
+    <div id="titlebar-btns">
+      <button onclick="MinimizeApp()" id="minimize-btn">-</button>
+      <button onclick="CloseApp()" id="close-btn">X</button>
+    </div>
+
+    <div class="panel" id="editor-settings">
+      <form name="settings" id="fields">
+        <h1>SESSION-SETTINGS</h1>
+        <div class="field-row full-width">
+          <div class="field full-width">
+            <p>Submissions Folder:</p>
+            <span
+              style="cursor: pointer"
+              onclick="ChooseFolder()"
+              id="folder-display"
+              >No Folder Selected</span
+            >
+          </div>
+        </div>
+
+        <div class="field-row full-width">
+          <div class="field full-width">
+            <p>Session Name:</p>
+            <input name="sessionName" type="text" />
+          </div>
+          <div class="field full-width">
+            <p>Session End Time:</p>
+            <input style="cursor: pointer" name="sessionTime" type="time" />
+          </div>
+        </div>
+        <h1>EDITOR-SETTINGS</h1>
+        <div class="field-row full-width">
+          <div class="field field-sidebyside">
+            <p>Autocomplete - HTML</p>
+            <input name="htmlCheckbox" class="checkbox" type="checkbox" />
+          </div>
+        </div>
+        <div class="field-row full-width">
+          <div class="field field-sidebyside">
+            <p>Autocomplete - CSS</p>
+            <input name="cssCheckbox" class="checkbox" type="checkbox" />
+          </div>
+        </div>
+        <div class="field-row full-width">
+          <div class="field field-sidebyside">
+            <p>Autocomplete - Javascript</p>
+            <input name="jsCheckbox" class="checkbox" type="checkbox" />
+          </div>
+        </div>
+      </form>
+      <button onclick="StartSession()" id="start-session-btn">
+        START SESSION
+      </button>
+    </div>
+    <div class="panel" id="session-menu">
+      <div id="fields">
+        <h1>SESSION-MENU</h1>
+        <div class="field-row full-width">
+          <div class="field" id="session-link-field">
+            <p>
+              Session Live on:
+              <span
+                onmouseup="CopyLink(this)"
+                id="session-link"
+                class="highlighted"
+              ></span>
+            </p>
+          </div>
+        </div>
+        <div class="field-row full-width">
+          <div>
+            <!-- This div is for styling purposes on how i setup my styling.-->
+            <div id="submission-list-nav">
+              <p>Users submissions</p>
+              <div id="submission-list-btns">
+                <button onclick="OpenFolder()" id="open-folder-btn">
+                  <i class="ti ti-folder"></i>
+                </button>
+                <button id="refresh-submission-list-btn">
+                  <i class="ti ti-reload"></i>
+                </button>
+              </div>
+            </div>
+            <div id="submission-list" class="full-width">
+              <div id="submission-list-tabs">
+                <span>Username</span><span>last upload at</span
+                ><span>amount</span>
+              </div>
+              <div id="submission-list-rows"></div>
+            </div>
+          </div>
+        </div>
+        <h1>GENERATING SEB FILE (SAFE EXAM BROWSER)</h1>
+        <div class="field-row full-width">
+          <div class="field full-width">
+            <p style="display: none" id="seb-download-field">
+              Seb download link:
+              <span
+                onclick="CopyLink(this)"
+                class="highlighted"
+                id="seb-download-link"
+              ></span>
+            </p>
+          </div>
+        </div>
+        <div class="field-row full-width" id="seb-row">
+          <div class="field full-width">
+            <p>Seb Unlock Password:</p>
+            <input id="seb-settings-password" type="text" />
+          </div>
+          <div class="field full-width">
+            <p>Seb Quit Password:</p>
+            <input id="seb-quit-password" type="text" />
+          </div>
+        </div>
+        <button
+          type="button"
+          id="generate-seb-btn"
+          onclick="GenerateSebConfig()"
+        >
+          Generate
+        </button>
+        <button
+          id="end-session-btn"
+          onclick="
+            Prompt(
+              'Manually ending session will delete current work students are working on!',
+              EndSession,
+            )
+          "
+        >
+          END SESSION
+        </button>
+      </div>
+    </div>
+
+    <script src="alert.js"></script>
+    <script src="ui.js"></script>
+    <script src="folder.js"></script>
+    <script src="submissions.js"></script>
+    <script src="session.js"></script>
+    <script src="seb.js"></script>
+    <script src="overlay.js"></script>
+    <script src="confirm.js"></script>
+    <script src="prompt.js"></script>
+  </body>
+</html>
