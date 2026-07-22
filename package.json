@@ -23,6 +23,10 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
     },
+    "linux": {
+      "target": "AppImage",
+      "category": "Development"
+    },
     "publish": [
       {
         "provider": "github",
