@@ -40,6 +40,7 @@
       "server.js",
       "admin/**/*",
       "public/**/*",
+      "assets/*",
       "node_modules/**/*",
       "package.json"
     ]
@@ -53,6 +54,7 @@
     "electron-updater": "^6.8.9",
     "express": "^5.2.1",
     "jszip": "^3.10.1",
+    "multer": "^2.2.0",
     "plist": "^3.1.0",
     "split.js": "^1.6.5"
   },

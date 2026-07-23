@@ -40,6 +40,14 @@ body {
   color: var(--fg);
 }
 
+.upload-btn {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
 input {
   border: 1px solid var(--fg);
   font: inherit;
@@ -178,6 +186,7 @@ button:has(i) {
   gap: 13px;
 }
 .field {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 3px;

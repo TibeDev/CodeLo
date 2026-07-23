@@ -253,3 +253,31 @@ nav h1 {
 .field {
   gap: 0.4rem;
 }
+
+#refrence {
+  display: none;
+  padding: 5px;
+  z-index: 99;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  min-width: 50px;
+  min-height: 50px;
+  overflow: auto;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--editor-icon-color);
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 1000px;
+  max-height: 1000px;
+  box-shadow: 3px 3px 0px 0px black;
+}
+
+#refrence img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}

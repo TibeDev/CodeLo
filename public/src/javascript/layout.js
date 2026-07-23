@@ -47,6 +47,8 @@ modeDropdown.addEventListener("change", () => {
   updateLayout();
 });
 
+window.addEventListener("DOMContentLoaded", updateLayout);
+
 const savedIndex = localStorage.getItem("layoutIndex");
 const index = savedIndex == null ? 0 : savedIndex;
 layoutDropdown.selectedIndex = index;
@@ -54,8 +56,6 @@ layoutDropdown.selectedIndex = index;
 const savedModeIndex = localStorage.getItem("modeIndex");
 const modeIndex = savedModeIndex == null ? 0 : savedModeIndex;
 modeDropdown.selectedIndex = modeIndex;
-
-window.addEventListener("DOMContentLoaded", updateLayout);
 
 function updateLayout() {
   let modeType = null;

@@ -47,6 +47,7 @@
     <script src="./vendor/codemirror/addon/edit/closetag.min.js"></script>
     <script src="./vendor/codemirror/addon/edit/matchbrackets.min.js"></script>
 
+    <!-- ================= Prettier ================= -->
     <script src="./vendor/prettier/standalone.js"></script>
     <script src="./vendor/prettier/html.js"></script>
     <script src="./vendor/prettier/postcss.js"></script>
@@ -86,6 +87,9 @@
         </div>
       </div>
     </div>
+    <div id="refrence" class="window">
+      <img src="../assets/refrenceImg.png" alt="" />
+    </div>
     <nav>
       <div class="nav-panel left">
         <h1 id="session-name"></h1>
@@ -93,10 +97,20 @@
       </div>
 
       <div class="nav-panel right">
+        <button id="refrence-btn" onclick="ShowRefrence()">
+          <i class="ti ti-eye"></i>
+        </button>
         <select id="mode-dropdown"></select>
         <select id="layout-dropdown"></select>
         <select id="theme-dropdown"></select>
-
+        <button
+          id="wipe-btn"
+          onclick="
+            Prompt('Are you sure you wanna start over again?', WipeProject)
+          "
+        >
+          <i class="ti ti-trash"></i>
+        </button>
         <button id="file-upload-btn" onclick="UploadProject(true)">
           <i class="ti ti-upload"></i>
         </button>
@@ -139,6 +153,7 @@
       <iframe id="output" frameborder="0" sandbox="allow-scripts"></iframe>
     </div>
 
+    <script src="./src/javascript/dragWindow.js"></script>
     <script src="./vendor/splitjs/split.min.js"></script>
     <script src="./src/javascript/overlay.js"></script>
     <script src="./src/javascript/layout.js"></script>

@@ -2,6 +2,15 @@ const express = require("express");
 const os = require("os");
 const path = require("path");
 const fs = require("fs");
+const multer = require("multer");
+const asset = multer({
+  storage: multer.diskStorage({
+    destination: "assets/",
+    filename: (req, file, cb) => {
+      cb(null, req.body.name + path.extname(file.originalname));
+    },
+  }),
+});
 
 let settings = null;
 let sessionActive = false;
@@ -58,6 +67,27 @@ function startServer(port = 3000) {
 
     res.download(filePath, `${settings.sessionName}.seb`);
   });
+
+  app.get("/templates", (req, res) => {
+    const file = path.join(__dirname, "templates", "Template.html");
+    if (!fs.existsSync(file)) return res.status(404).json({ code: null });
+
+    const code = fs.readFileSync(file, "utf8");
+    res.json({ code });
+  });
+
+  app.post("/upload-template", (req, res) => {
+    const { code } = req.body;
+    fs.mkdirSync("assets/Template.html", { recursive: true });
+    fs.writeFileSync(`assets/Template.html`, code);
+    res.json({ response: true });
+  });
+
+  app.post("/upload-asset", asset.single("asset"), (req, res) => {
+    res.json({ url: "/assets/" + req.file.filename });
+  });
+
+  app.use("/assets", express.static("assets"));
 
   app.post("/submit", (req, res) => {
     if (!sessionActive || !settings) {

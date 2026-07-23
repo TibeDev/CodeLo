@@ -20,3 +20,20 @@ function OpenFolder() {
   if (!submissionsFolder) return;
   window.api.openFolder(submissionsFolder);
 }
+
+function ChooseFile(id) {
+  const input = document.getElementById(id + "-input");
+  input.click();
+}
+
+function SetFileInputs() {
+  const fileInputs = document.querySelectorAll(".file-select-input");
+  fileInputs.forEach((input) => {
+    input.addEventListener("change", () => {
+      const id = input.id.replace("-input", "");
+      const btn = document.getElementById(id + "-btn");
+      btn.textContent = input.files[0]?.name ?? "Select a file";
+    });
+  });
+}
+SetFileInputs();

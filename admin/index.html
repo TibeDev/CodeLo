@@ -70,10 +70,74 @@
             <input name="cssCheckbox" class="checkbox" type="checkbox" />
           </div>
         </div>
-        <div class="field-row full-width">
+        <div class="field-row full-width" style="margin-bottom: 10px">
           <div class="field field-sidebyside">
             <p>Autocomplete - Javascript</p>
             <input name="jsCheckbox" class="checkbox" type="checkbox" />
+          </div>
+        </div>
+        <div class="field-row full-width">
+          <div class="field">
+            <p>Template Code:</p>
+            <button
+              class="upload-btn"
+              type="button"
+              id="template-btn"
+              onclick="ChooseFile('template')"
+              style="
+                height: 100%;
+                background-color: var(--bg);
+                color: var(--fg-muted);
+              "
+            >
+              Select a file
+            </button>
+            <input
+              hidden
+              class="file-select-input"
+              id="template-input"
+              name="templateCode"
+              type="file"
+              accept=".html"
+            />
+            <button
+              type="button"
+              onclick="ClearInput('template-input')"
+              style="background-color: var(--accent); color: var(--bg)"
+            >
+              Clear
+            </button>
+          </div>
+          <div class="field">
+            <p>Refrence Image:</p>
+            <button
+              class="upload-btn"
+              type="button"
+              id="refrence-btn"
+              onclick="ChooseFile('refrence')"
+              style="
+                height: 100%;
+                background-color: var(--bg);
+                color: var(--fg-muted);
+              "
+            >
+              Select a file
+            </button>
+            <input
+              hidden
+              class="file-select-input"
+              id="refrence-input"
+              name="refrenceImg"
+              type="file"
+              accept=".png,.jpg,.jpeg,image/*"
+            />
+            <button
+              type="button"
+              onclick="ClearInput('refrence-input')"
+              style="background-color: var(--accent); color: var(--bg)"
+            >
+              Clear
+            </button>
           </div>
         </div>
       </form>
@@ -165,7 +229,7 @@
 
     <script src="alert.js"></script>
     <script src="ui.js"></script>
-    <script src="folder.js"></script>
+    <script src="fileSelect.js"></script>
     <script src="submissions.js"></script>
     <script src="session.js"></script>
     <script src="seb.js"></script>

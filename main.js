@@ -59,11 +59,9 @@ ipcMain.handle("save-settings", (event, config) => {
 });
 
 ipcMain.handle("choose-folder", async () => {
-  console.time("dialog");
   const result = await dialog.showOpenDialog(win, {
     properties: ["openDirectory"],
   });
-  console.timeEnd("dialog");
   return result.canceled ? null : result.filePaths[0];
 });
 

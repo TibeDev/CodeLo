@@ -12,6 +12,29 @@ async function SaveSettings() {
   end.setHours(Number(h), Number(m), 0, 0);
   const endTime = end.getTime();
 
+  const codeFile = settings.templateCode.files[0];
+  const refrenceFile = settings.refrenceImg.files[0];
+
+  if (codeFile) {
+    const code = await codeFile.text();
+
+    const response = await fetch("http://localhost:3000/upload-template", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code: code }),
+    });
+  }
+
+  if (refrenceFile) {
+    const fd = new FormData();
+    fd.append("name", "refrenceImg");
+    fd.append("asset", refrenceFile);
+    const { url } = await fetch("http://localhost:3000/upload-asset", {
+      method: "POST",
+      body: fd,
+    }).then((r) => r.json());
+  }
+
   const data = {
     sessionName: settings.sessionName.value,
     endTime: endTime,
@@ -19,6 +42,7 @@ async function SaveSettings() {
     autocompleteCss: settings.cssCheckbox.checked,
     autocompleteJs: settings.jsCheckbox.checked,
     submissionsFolder: submissionsFolder,
+    hasRefrence: refrenceFile,
   };
 
   if (!data.submissionsFolder) {

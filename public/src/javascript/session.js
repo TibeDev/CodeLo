@@ -3,6 +3,7 @@ const sessionTimeTxt = document.getElementById("session-time");
 const sessionNameTxt = document.getElementById("session-name");
 
 let settings = null;
+let assets = null;
 let sessionActive = false;
 let loggedIn = false;
 
@@ -37,6 +38,8 @@ async function Sync() {
   } else if (!sessionEnded && currentOverlay === "session-state") {
     CloseOverlay("session-state");
   }
+
+  EnableRefrenceBtn(settings.hasRefrence);
 }
 
 function FormatTime(ms) {
@@ -64,6 +67,8 @@ function UpdateTimer() {
 
 async function Init() {
   settings = await fetch("/settings").then((r) => r.json());
+  assets = await fetch("/templates").then((r) => r.json());
+  console.log(assets.code);
   await Sync();
   UpdateTimer();
   setInterval(UpdateTimer, 1000);
@@ -111,3 +116,5 @@ function Logout() {
   WipeProject();
   Sync();
 }
+
+function GetAssets() {}

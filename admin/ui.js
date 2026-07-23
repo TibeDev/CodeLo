@@ -11,3 +11,9 @@ async function CopyLink(linkEl) {
   await navigator.clipboard.writeText(link);
   AlertMsg("Copied Link!");
 }
+
+function ClearInput(id) {
+  const input = document.getElementById(id);
+  input.value = "";
+  input.dispatchEvent(new Event("change"));
+}

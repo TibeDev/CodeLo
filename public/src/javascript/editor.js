@@ -116,9 +116,15 @@ function SaveToLocalStorage() {
 }
 
 function WipeProject() {
-  htmlEditor.setValue("");
-  cssEditor.setValue("");
-  jsEditor.setValue("");
+  const htmlCode = assets?.code ?? "";
+  htmlEditor.setValue(htmlCode);
+
+  if (modeDropdown.selectedIndex == 0) {
+    SetFullPage();
+  } else {
+    SeperateCode();
+  }
+
   SaveToLocalStorage();
 }
 
@@ -167,4 +173,17 @@ async function Format(editor, parser) {
   const cursor = editor.getCursor();
   editor.setValue(formatted);
   editor.setCursor(cursor);
+}
+
+const refrence = document.getElementById("refrence");
+let visible = false;
+function ShowRefrence() {
+  refrence.style.display = visible ? "flex" : "none";
+  visible = !visible;
+}
+ShowRefrence();
+
+const refrenceBtn = document.getElementById("refrence-btn");
+function EnableRefrenceBtn(enable) {
+  refrenceBtn.style.display = enable ? "block" : "none";
 }
