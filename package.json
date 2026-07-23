@@ -1,7 +1,7 @@
 {
   "name": "CodeLo",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Admins/hosts can now set a code template that automatically loads for anyone joining the editor session. They can also set a reference image that participants can position anywhere on their screen useful for tests where they need to recreate a given design.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
