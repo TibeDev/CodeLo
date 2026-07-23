@@ -16,9 +16,8 @@ The editor is based on [VDB-Editor](https://github.com/TibeDev/VDB-Editor), anot
 | HTML       | ✅     |
 | CSS        | ✅     |
 | JavaScript | ✅     |
-| Java       | Soon   |
-| SQL        | Soon   |
-| C#         | Soon   |
+
+More languages soon
 
 ## Safe Exam Browser
 
