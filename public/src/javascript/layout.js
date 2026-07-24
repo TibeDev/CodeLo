@@ -6,8 +6,8 @@ const modeDropdown = document.getElementById("mode-dropdown");
 const layouts = [{ layout: "horizontal" }, { layout: "vertical" }];
 
 const modes = [
-  { mode: "html mixed", editorSize: [100, 0, 0], gutterSize: 0 },
   { mode: "seperate", editorSize: [33, 33, 34], gutterSize: 8 },
+  { mode: "html mixed", editorSize: [100, 0, 0], gutterSize: 0 },
 ];
 
 const editorNavs = document.querySelectorAll(".editor-nav");
