@@ -1,5 +1,5 @@
 ![image](./art/logo-small.png)
-A free, open-source code editor for classroom tests and exams. LoCode runs locally on the teacher's machine  students join over the LAN and submit their work straight to the teacher's computer. No cloud, no accounts.
+A free, open-source code editor for classroom tests and exams. CodeLo runs locally on the teacher's machine  students join over the LAN and submit their work straight to the teacher's computer. No cloud, no accounts.
 
 ## The Code Editor
 The editor is based on [VDB-Editor](https://github.com/TibeDev/VDB-Editor), another project of mine.
@@ -21,7 +21,7 @@ More languages soon
 
 ## Safe Exam Browser
 
-LoCode works with [Safe Exam Browser](https://safeexambrowser.org) for locked-down exam conditions. The built-in generator produces a `.seb` file configured for your session, including the session URL, URL filtering, and quit/settings passwords  so you don't have to configure SEB by hand.
+CodeLo works with [Safe Exam Browser](https://safeexambrowser.org) for locked-down exam conditions. The built-in generator produces a `.seb` file configured for your session, including the session URL, URL filtering, and quit/settings passwords  so you don't have to configure SEB by hand.
 
 Of course you don't have to use SEB, you can also provide the students with a link to the editor.
 
