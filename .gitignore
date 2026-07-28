@@ -93,6 +93,9 @@ out
 # Flatpak build files
 .flatpak-builder/
 build-dir/
+repo/
+*.flatpak
+*.flatpakref
 
 # Electron build output
 dist/
@@ -145,4 +148,5 @@ assets
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
 
