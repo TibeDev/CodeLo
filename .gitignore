@@ -89,7 +89,16 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+
+# Flatpak build files
+.flatpak-builder/
+build-dir/
+
+# Electron build output
+dist/
+
+# Node dependencies
+node_modules/
 
 assets
 
@@ -136,3 +145,4 @@ assets
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
