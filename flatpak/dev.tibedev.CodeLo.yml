@@ -2,6 +2,8 @@ app-id: dev.tibedev.CodeLo
 runtime: org.freedesktop.Platform
 runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.node20
 
 command: CodeLo
 
@@ -19,6 +21,7 @@ modules:
     buildsystem: simple
 
     build-options:
+      append-path: /usr/lib/sdk/node20/bin
       env:
         npm_config_offline: "false"
 
