@@ -14,6 +14,7 @@ finish-args:
   - --device=dri
   - --socket=pulseaudio
   - --share=ipc
+  - --env=LD_LIBRARY_PATH=/app/lib/codelo
 
 modules:
   - name: codelo
@@ -34,7 +35,7 @@ modules:
       - mkdir -p /app/lib/codelo
       - cp -r dist/linux-unpacked/* /app/lib/codelo
 
-      - install -Dm755 /app/lib/codelo/codelo /app/bin/codelo
+      - install -Dm755 flatpak/codelo.sh /app/bin/codelo
 
       - install -Dm644 flatpak/dev.tibedev.CodeLo.desktop /app/share/applications/dev.tibedev.CodeLo.desktop
       - install -Dm644 flatpak/dev.tibedev.CodeLo.metainfo.xml /app/share/metainfo/dev.tibedev.CodeLo.metainfo.xml
