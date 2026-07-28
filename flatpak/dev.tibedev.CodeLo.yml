@@ -6,18 +6,11 @@ sdk: org.freedesktop.Sdk
 command: CodeLo
 
 finish-args:
-  # Required for online collaboration
   - --share=network
-
-  # Graphics
   - --socket=wayland
   - --socket=fallback-x11
   - --device=dri
-
-  # Audio
   - --socket=pulseaudio
-
-  # Needed by Electron
   - --share=ipc
 
 modules:
@@ -29,20 +22,20 @@ modules:
       env:
         npm_config_offline: "false"
 
-build-commands:
-  - npm ci
-  - npx electron-builder --linux dir
+    build-commands:
+      - npm ci
+      - npx electron-builder --linux dir
 
-  - mkdir -p /app/lib/codelo
-  - cp -r dist/linux-unpacked/* /app/lib/codelo
+      - mkdir -p /app/lib/codelo
+      - cp -r dist/linux-unpacked/* /app/lib/codelo
 
-  - install -Dm755 /app/lib/codelo/CodeLo /app/bin/CodeLo
+      - install -Dm755 /app/lib/codelo/CodeLo /app/bin/CodeLo
 
-  - install -Dm644 dev.tibedev.CodeLo.desktop /app/share/applications/dev.tibedev.CodeLo.desktop
-  - install -Dm644 dev.tibedev.CodeLo.metainfo.xml /app/share/metainfo/dev.tibedev.CodeLo.metainfo.xml
-  - install -Dm644 dev.tibedev.CodeLo.png /app/share/icons/hicolor/512x512/apps/dev.tibedev.CodeLo.png
+      - install -Dm644 dev.tibedev.CodeLo.desktop /app/share/applications/dev.tibedev.CodeLo.desktop
+      - install -Dm644 dev.tibedev.CodeLo.metainfo.xml /app/share/metainfo/dev.tibedev.CodeLo.metainfo.xml
+      - install -Dm644 dev.tibedev.CodeLo.png /app/share/icons/hicolor/512x512/apps/dev.tibedev.CodeLo.png
 
-sources:
-  - type: git
-    url: https://github.com/TibeDev/CodeLo.git
-    tag: v1.0.2
+    sources:
+      - type: git
+        url: https://github.com/TibeDev/CodeLo.git
+        tag: v1.0.2
