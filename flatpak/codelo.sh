@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /app/lib/codelo/codelo "$@"
+exec /app/lib/codelo/codelo --no-sandbox "$@"
