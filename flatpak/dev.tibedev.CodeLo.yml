@@ -1,4 +1,4 @@
-app-id: dev.tibedev.CodeLo
+app-id: io.github.TibeDev.CodeLo
 runtime: org.freedesktop.Platform
 runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
@@ -37,9 +37,9 @@ modules:
 
       - install -Dm755 flatpak/codelo.sh /app/bin/codelo
 
-      - install -Dm644 flatpak/dev.tibedev.CodeLo.desktop /app/share/applications/dev.tibedev.CodeLo.desktop
-      - install -Dm644 flatpak/dev.tibedev.CodeLo.metainfo.xml /app/share/metainfo/dev.tibedev.CodeLo.metainfo.xml
-      - install -Dm644 flatpak/dev.tibedev.CodeLo.png /app/share/icons/hicolor/512x512/apps/dev.tibedev.CodeLo.png
+      - install -Dm644 flatpak/io.github.TibeDev.CodeLo.desktop /app/share/applications/io.github.TibeDev.CodeLo.desktop
+      - install -Dm644 flatpak/io.github.TibeDev.CodeLo.metainfo.xml /app/share/metainfo/io.github.TibeDev.CodeLo.metainfo.xml
+      - install -Dm644 flatpak/io.github.TibeDev.CodeLo.png /app/share/icons/hicolor/512x512/apps/io.github.TibeDev.CodeLo.png
 
     sources:
       - type: dir

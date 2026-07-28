@@ -40,8 +40,10 @@
     </p>
   </description>
 
+  <id>io.github.TibeDev.CodeLo</id>
+
   <launchable type="desktop-id">
-    dev.tibedev.CodeLo.desktop
+    io.github.TibeDev.CodeLo.desktop
   </launchable>
 
   <categories>
