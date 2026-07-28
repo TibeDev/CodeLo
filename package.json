@@ -1,6 +1,6 @@
 {
   "name": "CodeLo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Adding flatpak support",
   "main": "main.js",
   "scripts": {
