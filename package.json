@@ -14,8 +14,9 @@
   "license": "ISC",
   "type": "commonjs",
   "build": {
-    "appId": "com.codelo",
+    "appId": "dev.tibedev.CodeLo",
     "productName": "CodeLo",
+    "icon": "branding/icon",
     "win": {
       "target": "nsis"
     },

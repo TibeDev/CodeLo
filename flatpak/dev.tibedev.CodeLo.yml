@@ -1,0 +1,48 @@
+app-id: dev.tibedev.CodeLo
+runtime: org.freedesktop.Platform
+runtime-version: "24.08"
+sdk: org.freedesktop.Sdk
+
+command: CodeLo
+
+finish-args:
+  # Required for online collaboration
+  - --share=network
+
+  # Graphics
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+
+  # Audio
+  - --socket=pulseaudio
+
+  # Needed by Electron
+  - --share=ipc
+
+modules:
+  - name: codelo
+
+    buildsystem: simple
+
+    build-options:
+      env:
+        npm_config_offline: "false"
+
+build-commands:
+  - npm ci
+  - npx electron-builder --linux dir
+
+  - mkdir -p /app/lib/codelo
+  - cp -r dist/linux-unpacked/* /app/lib/codelo
+
+  - install -Dm755 /app/lib/codelo/CodeLo /app/bin/CodeLo
+
+  - install -Dm644 dev.tibedev.CodeLo.desktop /app/share/applications/dev.tibedev.CodeLo.desktop
+  - install -Dm644 dev.tibedev.CodeLo.metainfo.xml /app/share/metainfo/dev.tibedev.CodeLo.metainfo.xml
+  - install -Dm644 dev.tibedev.CodeLo.png /app/share/icons/hicolor/512x512/apps/dev.tibedev.CodeLo.png
+
+sources:
+  - type: git
+    url: https://github.com/TibeDev/CodeLo.git
+    tag: v1.0.1
