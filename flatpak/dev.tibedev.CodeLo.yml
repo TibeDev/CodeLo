@@ -3,9 +3,9 @@ runtime: org.freedesktop.Platform
 runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node20
+  - org.freedesktop.Sdk.Extension.node22
 
-command: CodeLo
+command: codelo
 
 finish-args:
   - --share=network
@@ -21,18 +21,20 @@ modules:
     buildsystem: simple
 
     build-options:
-      append-path: /usr/lib/sdk/node20/bin
+      append-path: /usr/lib/sdk/node22/bin
+      build-args:
+        - --share=network
       env:
         npm_config_offline: "false"
 
     build-commands:
-      - npm ci
+      - npm ci --ignore-scripts --verbose
       - npx electron-builder --linux dir
 
       - mkdir -p /app/lib/codelo
       - cp -r dist/linux-unpacked/* /app/lib/codelo
 
-      - install -Dm755 /app/lib/codelo/CodeLo /app/bin/CodeLo
+      - install -Dm755 /app/lib/codelo/CodeLo /app/bin/codelo
 
       - install -Dm644 dev.tibedev.CodeLo.desktop /app/share/applications/dev.tibedev.CodeLo.desktop
       - install -Dm644 dev.tibedev.CodeLo.metainfo.xml /app/share/metainfo/dev.tibedev.CodeLo.metainfo.xml
