@@ -122,6 +122,22 @@ autoUpdater.on("update-downloaded", () => {
   autoUpdater.quitAndInstall();
 });
 
+autoUpdater.on("checking-for-update", () => {
+  console.log("Checking for update...");
+});
+
+autoUpdater.on("update-available", (info) => {
+  console.log("Update found:", info.version);
+});
+
+autoUpdater.on("update-not-available", () => {
+  console.log("No update found");
+});
+
+autoUpdater.on("error", (err) => {
+  console.error("Updater error:", err);
+});
+
 function sha256Upper(value) {
   return crypto.createHash("sha256").update(value).digest("hex").toUpperCase();
 }
